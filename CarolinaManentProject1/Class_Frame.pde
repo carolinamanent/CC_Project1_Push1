@@ -5,10 +5,10 @@ color e;
 color f;
 
 Frame(color tempC, color tempD, color tempE, color tempF) {
-  c = tempC;
-  d = tempD;
-  e = tempE;
-  f = tempF;
+  c = tempC; // Frame color 
+  d = tempD; // Corner Lines color 
+  e = tempE; // Text color
+  f = tempF; // Drawing line color 
  }
  
 void display() {
@@ -41,27 +41,24 @@ void display() {
 
 void update() {
   
-     if (keyCode == UP){ // keyCode tells Processing we're using special keys
-       y--; } // Loop that sets line drawn according to arrow key pressed
+  if (keyCode == UP){ // keyCode tells Processing we're using special keys
+   y--; } // Loop that sets line drawn according to arrow key pressed
        
-       if (keyCode == DOWN){
-         y++; }
+   if (keyCode == DOWN){
+     y++; }
          
-         if (keyCode == LEFT){
-           x--; }
+    if (keyCode == LEFT){
+       x--; }
            
-           if (keyCode == RIGHT){
-             x++; } //}     
+       if (keyCode == RIGHT){
+         x++; } //}     
   
- 
  float kx = constrain(x, width - 725, width - 75);  // Constrains line to toy's screen
  float ky = constrain(y, height - 525, height - 75);
 
-
-  strokeWeight(.5); // Chose a lighter weight to match the real thing
-  stroke(f); 
-  line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
-   }
-
+ strokeWeight(1); // Chose a lighter weight to match the real thing
+ stroke(f); 
+ line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
+ }
 
 }
