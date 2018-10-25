@@ -27,18 +27,22 @@ void draw(){
 if (option == 1) {
   frame1.display();
   frame1.update();
+  frame1.mouseDragged();
   knob1.display();  }
   
   if (option == 2) {
   frame2.display();
   frame2.update();
+  frame2.mouseDragged();
   knob2.display();  }
   
 }
 
-void mousePressed() {
+void keyPressed() {
+  if (key == 'b' || key == 'B'){
   option++;
   if (option > 3) {
     option = 1;
   }
+ }
 }

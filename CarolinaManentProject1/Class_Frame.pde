@@ -60,5 +60,10 @@ void update() {
  stroke(f); 
  line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
  }
+ 
+ void mouseDragged() {
+  if (mouseButton == LEFT){ 
+  fill(210); noStroke(); ellipse(mouseX,mouseY,50,50);  }
+}
 
 }
