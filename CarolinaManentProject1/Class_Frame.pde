@@ -1,4 +1,7 @@
 class Frame {
+int x = key; // sets x & y to constantly change according to the key pressed
+int y = key;
+
 color c;
 color d;
 color e;
@@ -39,8 +42,7 @@ void display() {
   text("Etch A Sketch", width/2, 65);
 }
 
-void update() {
-  
+void youMove() { // This is the interactive drawing aspect - you draw
   if (keyCode == UP){ // keyCode tells Processing we're using special keys
    y--; } // Loop that sets line drawn according to arrow key pressed
        
@@ -61,7 +63,7 @@ void update() {
  line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
  }
  
- void mouseDragged() {
+ void mouseDragged() { // Users can erase their artwork by dragging the mouse over it, constrained only to the toy's screen!
   if (mouseButton == LEFT){ 
   fill(210); noStroke(); ellipse(mouseX,mouseY,50,50);  }
 }
