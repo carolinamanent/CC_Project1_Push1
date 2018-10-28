@@ -9,9 +9,8 @@ void setup(){
   
   frame1 = new Frame(color(219,0,0), color(196,0,0), color(214,176,51), color(0)); 
   knob1 = new Knobs(color(255));
-    
+  
 }
-
 
 void draw(){
 

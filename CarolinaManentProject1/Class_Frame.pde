@@ -58,12 +58,19 @@ void youMove() { // This is the interactive drawing aspect - you draw
  float kx = constrain(x, width - 725, width - 75);  // Constrains line to toy's screen
  float ky = constrain(y, height - 525, height - 75);
 
+ if (kx > width/2){ // if the user crosses half the screen, the colors turn rainbow & get stroke is thicker 
+   strokeWeight(3);
+   stroke(random(255), random(255), random(255) );
+ }
+ 
+ else { // "Normal" EtchASketch
  strokeWeight(1); // Chose a lighter weight to match the real thing
  stroke(f);  
- line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
+ line(kx, ky, kx , ky); }  // Constantly changing with arrow pressed 
  
- point(width-kx,ky);
+ point(width-kx,ky); // Mirrors the line the user is drawing 
  point(kx,ky);
+
  
  }
  
