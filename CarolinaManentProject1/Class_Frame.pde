@@ -59,8 +59,12 @@ void youMove() { // This is the interactive drawing aspect - you draw
  float ky = constrain(y, height - 525, height - 75);
 
  strokeWeight(1); // Chose a lighter weight to match the real thing
- stroke(f); 
+ stroke(f);  
  line(kx, ky, kx , ky);  // Constantly changing with arrow pressed 
+ 
+ point(width-kx,ky);
+ point(kx,ky);
+ 
  }
  
  void mouseDragged() { // Users can erase their artwork by dragging the mouse over it, constrained only to the toy's screen!
