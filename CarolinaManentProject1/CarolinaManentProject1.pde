@@ -18,17 +18,7 @@ if (option == 1) {
   frame1.display();
   frame1.youMove(); 
   frame1.mouseDragged(); }
-  
-  if (option == 2) {
-  frame1.display();
-  frame1.youMove();
-  frame1.mouseDragged(); }
-    
-  if (option == 3) {
-  frame1.display();
-  frame1.youMove();
-  frame1.mouseDragged(); }    
-  
+       
 }
 
 void keyPressed() { // When the user presses B the picture changes 
