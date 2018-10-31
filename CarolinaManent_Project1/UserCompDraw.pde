@@ -10,6 +10,8 @@ color f;
 float r = 0;
 float theta = 0;
 
+
+
 ////////// GAMEPIECE CONSTRUCTOR ////////// 
 
 UserDraw(color tempC, color tempD, color tempE, color tempF) {
@@ -63,8 +65,18 @@ void font(){
   textFont(myFont);
   textAlign(CENTER , BOTTOM);
   fill(255);
-  text("Etch A Sketch", width/2, 65);
+  text("iEtch A Sketch", width/2, 65);
 }
+
+void battery(){
+  fill(0,255,0);
+  stroke(210);
+  rectMode(CORNERS);
+  rect(620, 20, 660, 40);
+  fill(210);
+  rect(660, 25, 665, 35);
+}
+  
 
 ////////// USER MOVES THE KEYS ////////// 
 
@@ -89,30 +101,37 @@ float ky = constrain(ay, height - 525, height - 75);
  line(kx, ky, kx, ky);  // Constantly changing with arrow pressed 
 }
 
+////////// COMPUTER REACTS FIRST TIME ////////// 
 
-////////// COMPUTER REACTS ////////// 
+void compMove1(){
 
-void compMove() {
-
-float messageX = r * cos(theta);
-float messageY= r * sin (theta); 
-  
+noStroke(); 
 float notificationX = random(width);
 float notificationY = random(height);
 
-if (keyPressed == true){
-  
-  fill(255,0,0,random(0,50));
-  ellipse(notificationX*2,notificationY*2,30,30); 
+fill(255,0,0,random(100,255));
+ellipse(notificationX*2,notificationY*2,30,30);
+
+fill(0,0,255,random(100,255));
+ellipse(notificationX*4,notificationY*4,20,20); 
+
+}
+
+
+////////// COMPUTER REACTS SECOND TIME ////////// 
+
+void compMove2() {
+float messageX = r * cos(theta);
+float messageY= r * sin (theta); 
   
   noStroke();
-  fill(0,random(200),random(255),random(100));
+  fill(random(0,255));
   rectMode(CENTER);
   rect(messageX+width/2,messageY+height/2,random(50,70),random(40,80), 10); 
   // Increment the angle
   theta += 0.01;
   // Increment the radius
-  r += 0.1;}
+  r += 0.1; 
  
   
 }
