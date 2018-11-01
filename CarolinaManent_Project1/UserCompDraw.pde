@@ -1,20 +1,20 @@
-class UserDraw {
-int ax = key; // sets x & y to constantly change according to the key pressed
+class UserDraw { // main class  
+int ax = key; // sets ax & ay to constantly change according to the key pressed
 int ay = key;
 
-color c;
-color d;
+color c; // initializing the colors for the frame 
+color d; 
 color e;
 color f;
 
-float r = 0;
-float theta = 0;
+float r = 0; // initializing the radius for the spiral 
+float theta = 0; // initializing theta for spiral 
 
 
 
 ////////// GAMEPIECE CONSTRUCTOR ////////// 
 
-UserDraw(color tempC, color tempD, color tempE, color tempF) {
+UserDraw(color tempC, color tempD, color tempE, color tempF) { // the class constructor
   c = tempC; // Frame color 
   d = tempD; // Corner Lines color 
   e = tempE; // Text color
@@ -24,8 +24,8 @@ UserDraw(color tempC, color tempD, color tempE, color tempF) {
 ////////// DISPLAY OF THE GAMEPIECE ////////// 
 
 void display() {
-  noStroke();
-  fill(c);
+  noStroke(); 
+  fill(c); // fill c allows me to switch between colors 
   rectMode(CORNERS);
   rect(0, 0, width, height - 525); // top left corner 
   rect(width, 0, width - 75, height - 75); // top right corner 
@@ -33,7 +33,7 @@ void display() {
   rect(0, height, width - 725, 0); // bottom left corner
     
   // Corner Lines for details 
-  stroke(d);
+  stroke(d); // allows me to switch between colors
   strokeWeight(2);
   line(75,75, 0,0); // top left
   line(width - 75, height - 525, width ,0); // top right
@@ -41,17 +41,17 @@ void display() {
   line(width - 725, height - 75 , 0, height); // bottom left  
   
   // Etch A Sketch written on Toy - font used as close as possible to original
-  PFont myFont;
-  myFont = createFont("HanziPenSC-W5", 48);
+  PFont myFont; // Importing font from processing library 
+  myFont = createFont("HanziPenSC-W5", 48); 
   textFont(myFont);
   textAlign(CENTER , BOTTOM);
-  fill(e);
+  fill(e); // allows me to switch between colors
   text("Etch A Sketch", width/2, 65);
   
   // Knobs
   ellipseMode(CENTER);
   noStroke();
-  fill(255);
+  fill(255); // white knobs 
   ellipse(width - 700, height - 40, 60, 60);
   ellipse(width - 100, height - 40, 60, 60); 
   
@@ -59,16 +59,16 @@ void display() {
 }
 
 void font(){
-    // Etch A Sketch written on Toy - font used as close as possible to original
-  PFont myFont;
-  myFont = createFont("Krungthep", 48);
+    // iEtch! 
+  PFont myFont; //Importing font from processing library 
+  myFont = createFont("Krungthep", 48); // "futuristic"
   textFont(myFont);
   textAlign(CENTER , BOTTOM);
   fill(255);
   text("iEtch A Sketch", width/2, 65);
 }
 
-void battery(){
+void battery(){ // battery top right of electronic 
   fill(0,255,0);
   stroke(210);
   rectMode(CORNERS);
@@ -106,10 +106,10 @@ float ky = constrain(ay, height - 525, height - 75);
 void compMove1(){
 
 noStroke(); 
-float notificationX = random(width);
+float notificationX = random(width); // making the x & y of the 'notifications' random 
 float notificationY = random(height);
 
-fill(255,0,0,random(100,255));
+fill(random(0),random(255),random(255),random(100,255)); // different colored notifications 
 ellipse(notificationX*2,notificationY*2,30,30);
 
 fill(0,0,255,random(100,255));
@@ -121,11 +121,11 @@ ellipse(notificationX*4,notificationY*4,20,20);
 ////////// COMPUTER REACTS SECOND TIME ////////// 
 
 void compMove2() {
-float messageX = r * cos(theta);
+float messageX = r * cos(theta); // converting polar to cartesian 
 float messageY= r * sin (theta); 
   
   noStroke();
-  fill(random(0,255));
+  fill(random(0,255)); // black and white - ominous!
   rectMode(CENTER);
   rect(messageX+width/2,messageY+height/2,random(50,70),random(40,80), 10); 
   // Increment the angle

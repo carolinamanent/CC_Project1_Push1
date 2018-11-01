@@ -6,7 +6,7 @@ class Timer{
   int totalTime; // How long Timer should last
 
   Timer(int tempTotalTime) {
-    totalTime = tempTotalTime;
+    totalTime = tempTotalTime; // this allows me to change the amount of ms I want to pass 
   }
 
   // Starting the timer
